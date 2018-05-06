@@ -6,7 +6,7 @@ Hi dear user,
   By using demo, you can display bitmap, or play doom.
 
 
-## Chnage Log
+## Change Log
 
 #### 2018.04.17
 
