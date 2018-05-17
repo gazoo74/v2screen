@@ -8,12 +8,7 @@
 #include "vodisp.h"
 #include "stamp.h"
 
-#define FBNAME    "/tmp/vodisp.map"
-
 void do_test();
-void signal_process(int);
-
-int signal_int = 0;
 
 int main(int argc, char *argv[])
 {
@@ -38,32 +33,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    if (!strcmp(argv[1], "framebuffer")) {
-        vodisp_get_framebuffer(FBNAME);   // alloc framebuffer here.
-
-        if (argc == 3) {
-            printf("write %s to framebuffer.\n", argv[2]);
-            vodisp_load_bitmap(argv[2], vodisp_get_framebuffer(FBNAME));
-            return 0;
-        }
-
-        printf("enable background render thread.\n");
-        vodisp_set_auto_refresh(1);
-
-        signal(SIGINT, signal_process);
-        while (!signal_int)
-            sleep(1);
-        vodisp_set_auto_refresh(0);
-        printf("disable background render thread.\n");
-    }
-
     return 0;
-}
-
-void signal_process(int sig)
-{
-    if (sig == SIGINT)
-        signal_int = 1;
 }
 
 void do_test()

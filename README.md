@@ -44,7 +44,7 @@ PS: you might need to modify the Makefile to fit your system.
 
 3. Call "sudo vodisp" to enable display.
 
-Once display works, vodisp will return "Display connected".
+Once display works, vodisp will return "display ready".
 
 
 # Quick use for Windows
@@ -60,7 +60,15 @@ Note: vodisp.exe keep only bitmap function.
 
 # Quick use for Raspberry Pi
 
-coming soon...
+1. Install libusb-1.0 for your raspberry Pi
+
+2. Copy lib/raspi/libvodisp.so to /usr/lib
+
+3. Compile vodisp or directly copy demo/raspi/vodisp to your raspberry Pi
+
+4. Run "sudo vodisp", wait until it return "display ready", and logo will show.
+
+
 
 # API
 
@@ -87,3 +95,20 @@ Note1: API is not complete, next version we plan to add api control backlight,
 control screen rotate.
 
 Note2: For more API usage, please check vodisp source code.
+
+
+# TODO
+
+1. Linux Kernel Driver(fbcon)
+
+enable this to enable console data directly output to screen and real framebuffer function.
+
+2. More Mode Support: 8bit colors, 16bit colors
+
+enable this to support more games, such as NEOGEO/FC, etc...
+
+3. Rotated/Mirror Support
+
+hardware support for fast convert speed.
+
+4. RGB/BGR Order Choose
